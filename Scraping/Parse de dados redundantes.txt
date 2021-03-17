@@ -1,10 +1,10 @@
 Colar o resultado no Wordpad, para ter quebras de linhas (o console do Chrome está em Unix format (LF) e tem que passar para Windows format (CRLF)) e limpar informações redundantes
 
-Seguidores e Seguindo do Instagram e LinkedIn
+Instagram e LinkedIn (Seguidores e Seguindo)
 	Copiar os dois resultados para o notepad e salvar cada resultado em um arquivo "seguidores.txt" e outro "seguindo.txt"
 	Executar o script CompSeg.ps1
 
-Parseamento do WhatsApp
+ WhatsApp
     1 - Copiar todo resultado do Wordpad e colar no campo Target String do Regex Hero. Como há muita informação redundante, coloque a seguinte regex (o Multiline não fará diferença no match), para casar somente como as linhas onde há o padrão (CategoriaPai-CategoriaFilha http://www.url.com):
         \w+[-]\w+ https://.*
         \w+[-]\w+ - Casa com as categorias [CategoriaPai-CategoriaFilha]
