@@ -1,0 +1,33 @@
+Colar o resultado no Wordpad, para ter quebras de linhas (o console do Chrome está em Unix format (LF) e tem que passar para Windows format (CRLF)) e limpar informações redundantes
+
+Seguidores e Seguindo do Instagram e LinkedIn
+	Copiar os dois resultados para o notepad e salvar cada resultado em um arquivo "seguidores.txt" e outro "seguindo.txt"
+	Executar o script CompSeg.ps1
+
+Parseamento do WhatsApp
+    1 - Copiar todo resultado do Wordpad e colar no campo Target String do Regex Hero. Como há muita informação redundante, coloque a seguinte regex (o Multiline não fará diferença no match), para casar somente como as linhas onde há o padrão (CategoriaPai-CategoriaFilha http://www.url.com):
+        \w+[-]\w+ https://.*
+        \w+[-]\w+ - Casa com as categorias [CategoriaPai-CategoriaFilha]
+        https://.* - Casa com a URL ao lado direito das categorias
+    2 - Quebrar as linhas dos matches para facilitar o parse:
+        Regex Hero em "Other Settings" mude para "Windows (CRLF) format" e no box da contagem de matches, clique no "i" e depois na aba Matching Characters.
+        regex101.com em "Match Information" clique no botão "Export Matches > Plain Text", que os resultados já vem com as linhas quebradas.
+    3 - Copie o resultado do Regex Hero para aba Replace e cole-o no campo Target String e coloque o regex abaixo:
+        Regular Expression: \w+[-]\w+
+        Replacement String: "C:/Users/Werther/Desktop/Noticias/$&/%%(title)s.%%(ext)s"
+        Other Settings: Indiferente
+    4 - Copie o resultado do campo Final String e cole no campo Target String, ainda na aba Replace e coloque o regex abaixo:
+        Regular Expression: -
+        Replacement String: /
+        Other Settings: Indiferente
+    5 - Copie o resultado do campo Final String e cole no campo Target String, ainda na aba Replace e coloque o regex abaixo:
+        Regular Expression: "C:
+        Replacement String: youtube-dl -o "C: 
+        Other Settings: Indiferente
+Arquivo em lote
+    Copie o resultado do campo Final String e cole em um arquivo texto do bloco de notas, para criar o arquivo em lote, que irá baixar tudo.
+    No cabeçalho do arquivo coloque a seguinte linha: chcp 1252. Pois é o Change Code Page, para interpretar corretamente os acentos.
+    Salve o arquivo na desktop com o nome lista.cmd, "cmd" é o mesmo que "bat"
+    Execute o arquivo em lote!
+Limpar o chat no WAPP
+    Arrastar chat para o lado > Mais > Limpar conversa > Apagar todas as mensagens
