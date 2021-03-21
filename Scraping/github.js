@@ -5,8 +5,9 @@ var elements = document.querySelectorAll(".mr-3 > .Link--muted"); //Seleciona o 
     for (i in elements) {
         //https://www.regular-expressions.info/numericranges.html
         //https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch06s07.html
-        const regex = /1\d[1-9]|[2-9]\d{2,}|\d{4,}/g
+        const regex = /1\d[1-9]|[2-9]\d{2,}|\d{4,}/g //Regex para raspar Githubers com mais de 100 Repositórios ou repositório com mais de 100 Stargazer
+        //const regex = /k/g //Regex para raspar Repositorios acima de 999, pois o padrão muda para 1k, 10k, 100k
 
-        if (elements[i].innerText.match(regex) >= 100)
-            console.log('<a href="' + elements[i].href + '">Githuber ' + i + '</a><br />')
+        if (elements[i].innerText.match(regex))
+            console.log('<a href="' + elements[i].href + '">Resultado: ' + i + '</a><br />')
     }
