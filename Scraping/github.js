@@ -1,5 +1,5 @@
-//Raspa githubers com mais de 100 repositórios do seu feed e já cria uma estrutura html.
-//Não é necessário expandir cada feed de quem você segue.
+//Raspa dados relevantes do seu feed, criando uma estrutura em html.
+//Não é necessário expandir cada feed para executar este script.
 
 var elements = document.querySelectorAll(".mr-3 > .Link--muted"); //Seleciona o "span" com a classe "mr-3" e seu elemento interno "a" com a classe "Link--muted"
     for (i in elements) {
